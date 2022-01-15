@@ -1,2 +1,2 @@
 #!/bin/sh
-npm i
+deno cache --lock=lock.json --lock-write editor.js

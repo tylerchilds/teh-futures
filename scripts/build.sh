@@ -1,2 +1,2 @@
 #!/bin/sh
-node_modules/.bin/rollup -c
+deno bundle ./editor.js ./editor.bundle.js
