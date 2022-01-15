@@ -15042,16 +15042,25 @@ function A18(t = {
         ], Fe2(T30))
     }));
 }
-function createEditor(target) {
-    const editor = new D3({
-        state: w1.create({
-            extensions: [
-                D14,
-                A18()
-            ]
-        }),
+const config = {
+    extensions: [
+        D14,
+        A18()
+    ]
+};
+function createEditor(target, flags = {
+}) {
+    const state = w1.create({
+        ...config,
+        ...flags
+    });
+    const view = new D3({
+        state,
         parent: target
     });
-    return editor;
+    return {
+        state,
+        view
+    };
 }
-createEditor(document.body);
+export { createEditor as default };

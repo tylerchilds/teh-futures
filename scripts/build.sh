@@ -1,2 +1,2 @@
 #!/bin/sh
-deno bundle ./editor.js ./editor.bundle.js
+deno bundle ./public/editor.js ./public/editor.bundle.js
