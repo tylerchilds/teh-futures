@@ -15,17 +15,32 @@ async function handleRequest(request) {
 
   return new Response(`
 			<!doctype html>
-			<meta charset=utf8>
-			<script type="module">
-				import createEditor from '/public/editor.bundle.js'
-				console.log({ createEditor })
+      <html lang="en">
+        <head>
+          <meta charset="utf-8">
+          <title>
+            ${pathname}
+          </title>
+        </head>
+        <body>
+          <main
+            class="source-code"
+            id="${pathname}"
+          ></main>
+          <script type="module">
+            import createEditor
+              from '/public/editor.bundle.js'
 
-				createEditor(document.body)
-			</script>
+            console.log({ createEditor })
+
+            createEditor('.source-code')
+          </script>
+        </body>
+      </html>
 		`,
     {
       headers: {
-        "content-type": "text/html; charset=utf-8",
+        "content-type": getType('html'),
       },
     },
   )
@@ -33,11 +48,12 @@ async function handleRequest(request) {
 
 const types = {
 	'css': 'text/css; charset=utf-8',
+  'html': 'text/html; charset=utf-8',
 	'js': 'text/javascript; charset=utf-8'
 }
 
 function getType(ext) {
-	return types[ext] || 'text/plain'
+	return types[ext] || 'text/plain; charset=utf-8'
 }
 
 console.log("Listening on http://localhost:8000");
