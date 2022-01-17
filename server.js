@@ -12,7 +12,6 @@ const modes = {
 
 async function autosave(pathname, params) {
 	const { value } = params
-console.log('why')
 	await Deno.writeTextFile(`./public${pathname}.autosave`, value)
 	return editor(request)
 }
@@ -71,10 +70,7 @@ function editor(request) {
 						id="${pathname}"
 					></main>
 					<script type="module">
-						import createEditor
-							from '/public/editor.bundle.js'
-
-						console.log({ createEditor })
+						import createEditor from '/public/editor.bundle.js'
 
 						createEditor('.source-code')
 					</script>

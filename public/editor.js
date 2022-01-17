@@ -18,14 +18,14 @@ import tag
 const editors = {}
 
 const autosave = upload.bind(null, 'autosave')
-const save = upload.bind(null, 'save')
+const publish = upload.bind(null, 'save')
 
 export default function createEditor(selector, flags = {}) {
   const $ = tag(selector)
 
   mount($, flags)
-  onSave($, flags)
   onAutosave($, { every: 5 })
+  onPublish($, flags)
 }
 
 const config = {
@@ -40,8 +40,19 @@ const config = {
 function mount($, flags) {
   $.mount(target => {
     $.ready(() => {
-      // not ready or already initialized, quit
+      // already initialized, quit
       if(editors[target.id]) return
+
+			target.innerHTML = `
+				<nav class="action-bar">
+					<button data-reset data-id="${target.id}">
+						Reset
+					</button>
+					<button data-publish data-id="${target.id}">
+						Publish
+					</button>
+				</nav>
+			`
 
       const initialState = $.read()
       const copy = initialState[target.id] || {}
@@ -73,9 +84,10 @@ function onAutosave($, { every }) {
 	}), every * 1000)
 }
 
-function onSave($, _flags) {
-	$.on('click', '[data-save]', (event) => {
-		save(event.target.id, $)
+function onPublish($, _flags) {
+	$.on('click', '[data-publish]', (event) => {
+		const { id } = event.target.dataset
+		publish(id, $)
 	})
 }
 

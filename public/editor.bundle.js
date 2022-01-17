@@ -17867,15 +17867,15 @@ import('https://esm.sh/fast-equals@2.0.4').then(({ deepEqual  })=>equal = deepEq
 const editors = {
 };
 const autosave = upload.bind(null, 'autosave');
-const save1 = upload.bind(null, 'save');
+const publish = upload.bind(null, 'save');
 function createEditor(selector, flags = {
 }) {
     const $ = tag(selector);
     mount1($, flags);
-    onSave($, flags);
     onAutosave($, {
         every: 5
     });
+    onPublish($, flags);
 }
 const config1 = {
     extensions: [
@@ -17889,6 +17889,16 @@ function mount1($, flags) {
     $.mount((target)=>{
         $.ready(()=>{
             if (editors[target.id]) return;
+            target.innerHTML = `
+				<nav class="action-bar">
+					<button data-reset data-id="${target.id}">
+						Reset
+					</button>
+					<button data-publish data-id="${target.id}">
+						Publish
+					</button>
+				</nav>
+			`;
             const initialState = $.read();
             const copy = initialState[target.id] || {
             };
@@ -17916,9 +17926,10 @@ function onAutosave($, { every  }) {
         })
     , every * 1000);
 }
-function onSave($, _flags) {
-    $.on('click', '[data-save]', (event)=>{
-        save1(event.target.id, $);
+function onPublish($, _flags) {
+    $.on('click', '[data-publish]', (event)=>{
+        const { id  } = event.target.dataset;
+        publish(id, $);
     });
 }
 async function upload(mode, pathname, $) {
