@@ -26,7 +26,7 @@ async function save(pathname, params) {
 }
 
 async function handleRequest(request) {
-	return await (methods[request.method] || methods['POST'])(request)
+	return await (methods[request.method] || methods['GET'])(request)
 }
 
 async function handlePost(request) {
