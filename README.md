@@ -17,3 +17,8 @@ To get started, play with the following examples:
 * [me](/me)
 * [style](/style.css)
 * [editor](/editor.js)
+
+## Local Development
+Clone [code-mirror-shield](https://git.sr.ht/~tychi/code-mirror-shield)
+
+To launch the server, run `./quick-start.sh`. All changes are reflected in the public folder. You can develop in the web browser or in your local file system.
