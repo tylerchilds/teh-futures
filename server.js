@@ -63,7 +63,6 @@ async function handleGet(request) {
 
 	return editor(request)
 }
-
 function editor(request) {
 	const { pathname } = new URL(request.url);
 
@@ -102,7 +101,7 @@ const types = {
 }
 
 function getType(ext) {
-	return types[ext] || 'text/plain; charset=utf-8'
+	return types[ext] || types['html']
 }
 
 console.log("Listening on http://localhost:8000");

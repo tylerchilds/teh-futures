@@ -1,0 +1,76 @@
+<!DOCTYPE html author="mailto:email@tychi.me" license="BSD 3-Clause">
+<html lang="en">
+  <head>
+    <title>An internet artist in their natural habitat</title>
+    <meta name="viewport" content="width=device-width">
+    <style type="text/css">
+      /* Latin Basic, as defined by Google Fonts */
+      @font-face {
+        font-family: 'Fraunces';
+        font-display: swap;
+        font-weight: 100 900;
+        src: url('fonts/Fraunces--latin_basic.woff2') format('woff2');
+        unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;
+      }
+
+      html {
+        background: dodgerblue;
+        font-family: 'Fraunces', 'Avenir', 'Avenir Next','Helvetica Neue','Segoe UI', 'Verdana', sans-serif;
+        font-size: 1.3rem;
+        font-variation-settings: "opsz" 9, "wght" 300, "SOFT" 100, "WONK" 1;
+        line-height: 1.25;
+      }
+      body {
+        background: white;
+        border-radius: 1rem;
+        margin: 2rem auto;
+        max-width: 42rem;
+        padding: 1rem;
+      }
+
+      main {
+        padding: 1rem;
+      }
+      img {
+        border: 1rem solid orange;
+        border-radius: 1rem 1rem 0 0;
+        box-sizing: border-box;
+        display: block;
+        max-width: 100%;
+      }
+      summary { font-weight: bold; font-size: 2rem; text-align: center; }
+      details {
+        background: white;
+        border-radius: 1rem;
+        margin: 1rem;
+        padding: 1rem;
+      }
+      main h1,
+      main p { margin: 1rem 0; }
+    </style>
+  </head>
+  <body>
+    <a href="https://thelanding.page">
+      <img src="padres-selfie.jpg" alt="A photograph of the artist" />
+    </a>
+    <main>
+      <h1>TyChi is an internet artist.<br/>Like Spider-Man, he slings web stuff.</h1>
+      <p>
+        His in progress work is best compared to the film <a href="https://en.wikipedia.org/wiki/Monsters%2C_Inc.">Monsters, Inc.</a>. A bit spoilery, but the flick charts the progression of two societies living in a dystopia and their path towards a utopia. The monsters use the fear of the innocent to power their burgeoning, swanky society. In the end, it turned out that laughter was the best medicine and the humans no longer needed to be afraid of the artificially scary monsters.
+      </p>
+
+      <p>
+        The current state of this work is <a href="https://musings.tychi.me">a blog</a> that outlines what it is like living in a society fueled by fear-induced machines powered by greed. The ending is being written in real-time, but it should be all of us laughing the "Metaverse" into the ground if these clowns want to seriously take the world wide web on for a second round.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        You can catch him lounging around the <a href="https://smallcamp.art/@tychi">SmallCamp</a> fire or directly via xmpp at taco@chat.1998.social.
+      </p>
+
+      <p>
+        Email also works. yo [at] tychi.me is best for establishing initial contact if nothing else makes sense here.
+      </p>
+    </main>
+  </body>
+</html>

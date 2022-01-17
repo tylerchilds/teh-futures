@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Starter Site</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type="text/css">
+      :root {
+        --bg: cornsilk;
+        --fg: saddlebrown;
+        --card-bg: rgba(255,255,255,.85);
+        --card-accent: rgba(0,0,0,.25);
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: rgba(0,0,0,.85);
+          --fg: cornsilk;
+        }
+      }
+      html {
+        height: 100%;
+        padding: 1rem;
+      }
+      body {
+        background: var(--bg);
+        color: var(--fg);
+        height: 100%;
+        max-width: 35rem;
+        font-size: 18px;
+        line-height: 30px;
+        margin: 0 auto;
+      }
+
+      a {
+        background: cornsilk;
+        padding: .25rem;
+      }
+
+      footer {
+        margin: 4rem 0 2rem;
+      }
+
+      img {
+        display: flex;
+        max-width: 100%;
+      }
+
+      code {
+        display: block;
+        padding: 1rem;
+      }
+
+      polaroid {
+        background: var(--card-bg);
+        border: 1px solid var(--card-accent);
+        display: flex;
+        margin: 1rem 0;
+        padding: 1rem 1rem 3rem;
+      }
+
+      .sans-serif {
+        font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Ubuntu, roboto, noto, arial, sans-serif;
+      }
+
+      .serif {
+        font-family: Iowan Old Style, Apple Garamond, Baskerville, Times New Roman, Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+      }
+
+      .mono {
+        font-family: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
+      }
+
+      /*
+        Best Practice from A11y Project
+        https://a11yproject.com/posts/how-to-hide-content/
+      */
+      .visually-hidden {
+        position: absolute !important;
+        height: 1px; 
+        width: 1px;
+        overflow: hidden;
+        clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+        clip: rect(1px, 1px, 1px, 1px);
+        white-space: nowrap; /* added line */
+      }
+
+      .breadcrumb {
+        text-align: right;
+      }
+    </style>
+  </head>
+  <body class="serif">
+    <a id="page-top"  class="visually-hidden"></a>
+    <header>
+      <nav>
+        <a href="#content" class="visually-hidden">Skip Navigation</a>
+        <h3>Menu</h3>
+        <ul>
+          <li><a href="#about">About Starter Site</a></li>
+          <li><a href="#quick-start">Quick Start</a></li>
+          <li><a href="#next-steps">Next Steps</a></li>
+        </ul>
+      </nav>
+      <a id="content" class="visually-hidden"></a>
+      <polaroid>
+				<video width="100%" controls>
+					<source src="https://user.fm/files/v2-50418402196995341f92799c34d5ed6a/recording_20211225-135812.webm" type="video/mp4">
+				</video>
+      </polaroid>
+      <p class="breadcrumb">You are: <strong>Home</strong>
+        <a href="#page-top">View Menu</a></p>
+      <a name="about"></a>
+      <h1>About Starter Site</h1>
+    </header>
+    <main>
+      <p>The <em>Starter Site</em> is a handcrafted website starter template. Built for any skill level. To last until the end of the internet.</p>
+      <ul>
+        <li>Litigation Proof: ADA compliant</li>
+        <li>Secure Mode: Runs with JavaScript disabled</li>
+        <li>Scalable: Built for any size entity... person, organization, or otherwise</li>
+        <li>Simple: A single file</li>
+      </ul>
+      <a name="quick-start"></a>
+      <h2>Quick Start</h2>
+      <p>
+        Follow these three instructions. If successful, you will then have a website on the internet and a better understanding of web technology.
+      </p>
+      <ol>
+        <li>
+          Download this starter site (e.g. `<code>curl <script>document.write(window.location.origin + window.location.pathname)</script> --output my-first-website.html</code>`)
+        </li>
+        <li>
+          Make any personalization changes. Maybe try colors from <a href="https://randoma11y.com">random a11y</a> or <a href="https://colours.neilorangepeel.com/">a color guide</a>.
+        </li>
+        <li>
+          Upload your starter site (e.g. `<code>curl -F'file=@my-first-website.html' http://0x0.st</code>`)
+        </li>
+      </ol>
+      <p>
+        The file that is your website is now on a server. An internet domain (e.g. tychi.me) resolves to the server and the pathname (e.g. /starter-site) resolves to the file. Combined, this is a website.
+      </p>
+      <p>
+        <strong>Note:</strong> The website renders with only basic content and no images, styling, or scripts. This is a security feature to protect 0x0.st from abuse. To render the website with images, styling, and scripts, follow the next steps below.
+      </p>
+      <a name="next-steps"></a>
+      <h2>Next Steps</h2>
+      <p>
+        To have full control over your website, you will need three things:
+      </p>
+      <dl>
+        <dt>Domain Name</dt>
+        <dd>
+          Addresses like .com, .org, etc can be leased from registrars. They allow for your website to be human identifiable.
+        </dd>
+        <dt>Internet Utilities</dt>
+        <dd>
+          Your server will need to be online 24/7 to process requests at any time from any where in the world. You will need both electricity and internet access.
+        </dd>
+        <dt>Server</dt>
+        <dd>A computer capable of connecting to the internet and responding to requests for content</dd>
+      </dl>
+      <p>
+        Then, upload your website to your server, point your domain name at the server, and turn everything on.
+      </p>
+      <h3>Extra Credit</h3>
+      <p>
+        Any computer is capable of launching applications when turned on. Specifically, we can open a web browser, or a webview, on boot and reference a website.
+      </p>
+      <p>
+        Follow the cryptic instructions on this <a href="https://ncity.executiontime.pub/">Cyberpunk 2077 easter egg</a> to become a Netrunner capable of running a secure cyberdeck with your website as the home screen!
+      </p>
+      <a href="#page-top">Go to top</a>
+    </main>
+    <footer class="mono">
+      designed w/&hearts; by (@|~)<a href="https://tychi.me">tychi</a> (CC BY-SA 4.0)
+    </footer>
+    <script type="text/javascript">
+      (function() {
+        location.hash = '#content';
+      })();
+    </script>
+  </body>
+</html>

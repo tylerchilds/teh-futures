@@ -17892,6 +17892,9 @@ function mount1($, flags) {
             if (editors[target.id]) return;
             target.innerHTML = `
 				<nav class="action-bar">
+          <a href="/public${target.id}" style="float: right">
+            Preview
+           </a>
 					<button data-recover data-id="${target.id}">
 						Recover
 					</button>

@@ -1,0 +1,730 @@
+:root {
+	--bg: cornsilk;
+	--fg: saddlebrown;
+	--card-bg: rgba(255,255,255,.85);
+	--card-accent: rgba(0,0,0,.25);
+}
+@media (prefers-color-scheme: dark) {
+	:root {
+		--bg: rgba(0,0,0,.85);
+		--fg: cornsilk;
+	}
+}
+
+html {
+	--border-radius: 4px;
+
+	--red1: hsla(355, 100%, 8%, 1);
+	--red2: hsla(355, 75%, 22%, 1);
+	--red3: hsla(355, 85%, 36%, 1);
+	--red4: hsla(355, 100%, 55%, 1);
+	--red5: hsla(355, 85%, 64%, 1);
+	--red6: hsla(355, 85%, 78%, 1);
+	--red7: hsla(355, 100%, 92%, 1);
+
+	--flame1: hsla(15, 100%, 8%, 1);
+	--flame2: hsla(15, 75%, 22%, 1);
+	--flame3: hsla(15, 85%, 36%, 1);
+	--flame4: hsla(15, 95%, 50%, 1);
+	--flame5: hsla(15, 85%, 64%, 1);
+	--flame6: hsla(15, 85%, 78%, 1);
+	--flame7: hsla(15, 100%, 92%, 1);
+
+	--orange1: hsla(30, 100%, 8%, 1);
+	--orange2: hsla(30, 75%, 22%, 1);
+	--orange3: hsla(30, 85%, 36%, 1);
+	--orange4: hsla(30, 100%, 50%, 1);
+	--orange5: hsla(30, 85%, 64%, 1);
+	--orange6: hsla(30, 85%, 78%, 1);
+	--orange7: hsla(30, 100%, 92%, 1);
+
+	--amber1: hsla(45, 100%, 8%, 1);
+	--amber2: hsla(45, 75%, 22%, 1);
+	--amber3: hsla(45, 85%, 36%, 1);
+	--amber4: hsla(45, 100%, 50%, 1);
+	--amber5: hsla(45, 85%, 64%, 1);
+	--amber6: hsla(45, 85%, 78%, 1);
+	--amber7: hsla(45, 100%, 92%, 1);
+
+	--yellow1: hsla(60, 100%, 8%, 1);
+	--yellow2: hsla(60, 75%, 22%, 1);
+	--yellow3: hsla(60, 85%, 36%, 1);
+	--yellow4: hsla(60, 100%, 50%, 1);
+	--yellow5: hsla(60, 85%, 64%, 1);
+	--yellow6: hsla(60, 85%, 78%, 1);
+	--yellow7: hsla(60, 100%, 92%, 1);
+
+	--chartruese1: hsla(75, 100%, 8%, 1);
+	--chartruese2: hsla(75, 75%, 22%, 1);
+	--chartruese3: hsla(75, 85%, 36%, 1);
+	--chartruese4: hsla(75, 100%, 50%, 1);
+	--chartruese5: hsla(75, 85%, 64%, 1);
+	--chartruese6: hsla(75, 85%, 78%, 1);
+	--chartruese7: hsla(75, 100%, 92%, 1);
+
+	--green1: hsla(120, 100%, 8%, 1);
+	--green2: hsla(120, 75%, 22%, 1);
+	--green3: hsla(120, 85%, 36%, 1);
+	--green4: hsla(120, 100%, 50%, 1);
+	--green5: hsla(120, 85%, 64%, 1);
+	--green6: hsla(120, 85%, 78%, 1);
+	--green7: hsla(120, 100%, 92%, 1);
+
+	--aqua1: hsla(160, 100%, 8%, 1);
+	--aqua2: hsla(160, 75%, 22%, 1);
+	--aqua3: hsla(160, 85%, 36%, 1);
+	--aqua4: hsla(160, 100%, 50%, 1);
+	--aqua5: hsla(160, 85%, 64%, 1);
+	--aqua6: hsla(160, 85%, 78%, 1);
+	--aqua7: hsla(160, 100%, 92%, 1);
+
+	--blue1: hsla(200, 100%, 8%, 1);
+	--blue2: hsla(200, 75%, 22%, 1);
+	--blue3: hsla(200, 85%, 36%, 1);
+	--blue4: hsla(200, 100%, 50%, 1);
+	--blue5: hsla(200, 85%, 64%, 1);
+	--blue6: hsla(200, 85%, 78%, 1);
+	--blue7: hsla(200, 100%, 92%, 1);
+
+	--indigo1: hsla(230, 100%, 8%, 1);
+	--indigo2: hsla(230, 75%, 22%, 1);
+	--indigo3: hsla(230, 75%, 36%, 1);
+	--indigo4: hsla(230, 80%, 55%, 1);
+	--indigo5: hsla(230, 65%, 64%, 1);
+	--indigo6: hsla(230, 85%, 78%, 1);
+	--indigo7: hsla(230, 100%, 92%, 1);
+
+	--violet1: hsla(270, 100%, 8%, 1);
+	--violet2: hsla(270, 75%, 22%, 1);
+	--violet3: hsla(270, 85%, 36%, 1);
+	--violet4: hsla(270, 100%, 55%, 1);
+	--violet5: hsla(270, 85%, 64%, 1);
+	--violet6: hsla(270, 85%, 78%, 1);
+	--violet7: hsla(270, 100%, 92%, 1);
+
+	--fuschia1: hsla(290, 100%, 8%, 1);
+	--fuschia2: hsla(290, 75%, 22%, 1);
+	--fuschia3: hsla(290, 85%, 36%, 1);
+	--fuschia4: hsla(290, 100%, 55%, 1);
+	--fuschia5: hsla(290, 85%, 64%, 1);
+	--fuschia6: hsla(290, 85%, 78%, 1);
+	--fuschia7: hsla(290, 100%, 92%, 1);
+
+	--magenta1: hsla(330, 100%, 8%, 1);
+	--magenta2: hsla(330, 75%, 22%, 1);
+	--magenta3: hsla(330, 85%, 36%, 1);
+	--magenta4: hsla(330, 100%, 55%, 1);
+	--magenta5: hsla(330, 85%, 64%, 1);
+	--magenta6: hsla(330, 85%, 78%, 1);
+	--magenta7: hsla(330, 100%, 92%, 1);
+
+	--silver1: hsla(180, 10%, 2%, 1);
+	--silver2: hsla(180, 10%, 18%, 1);
+	--silver3: hsla(180, 10%, 34%, 1);
+	--silver4: hsla(180, 10%, 50%, 1);
+	--silver5: hsla(180, 10%, 66%, 1);
+	--silver6: hsla(180, 10%, 82%, 1);
+	--silver7: hsla(180, 10%, 98%, 1);
+
+	--color-primary-tint1: hsl(350, 80%, 60%);
+	--color-primary: hsl(350, 80%, 45%);
+	--color-primary-shade1: hsl(350, 80%, 35%);
+	--color-accent-tint1: hsl(170, 80%, 60%);
+	--color-accent: hsl(170, 80%, 45%);
+	--color-accent-shade1: hsl(170, 80%, 35%);
+	--color-link: hsl(230, 60%, 50%);
+	--color-link-visited: hsl(290, 60%, 50%);
+	--color-link-hover: hsl(230, 80%, 60%);
+	--color-link-active: hsl(350, 60%, 50%);
+	--color-neutral-tint4: hsl(170, 10%, 98%);
+	--color-neutral-tint3: hsl(170, 10%, 94%);
+	--color-neutral-tint2: hsl(170, 10%, 85%);
+	--color-neutral-tint1: hsl(170, 10%, 68%);
+	--color-neutral: hsl(170, 10%, 55%);
+	--color-neutral-shade1: hsl(170, 10%, 41%);
+	--color-neutral-shade2: hsl(170, 10%, 30%);
+	--color-neutral-shade3: hsl(170, 10%, 18%);
+	--color-neutral-shade4: hsl(170, 10%, 2%);
+	--focus-outline: 4rem dotted var(--flame-4);
+	--focus-outline-offset: 4rem;
+	--font-mono: 'Consolas', 'Monaco', 'Courier New', monospace;
+	font-size: .5px;
+}
+
+html {
+	height: 100%;
+	padding: 1rem;
+}
+
+body {
+	background: var(--bg);
+	color: var(--fg);
+	height: 100%;
+	max-width: 35rem;
+	font-size: 18px;
+	font: font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Ubuntu, roboto, noto, arial, sans-serif;
+	line-height: 30px;
+	margin: 0 auto;
+}
+
+body {
+	font-size: 36rem;
+	line-height: 48rem;
+}
+
+* {
+	border: 0;
+	font: inherit;
+	margin: 0;
+	padding: 0;
+	text-rendering: geometricPrecision;
+}
+
+:focus {
+	outline: var(--focus-outline);
+	outline-offset: var(--focus-outline-offset);
+}
+
+html {
+	overflow-x: hidden;
+}
+
+html,
+body {
+	box-sizing: border-box;
+	min-height: 100%;
+}
+
+body {
+	background-color: var(--bg);
+	color: var(--fg);
+	position: relative;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 48rem 0;
+}
+
+h1 {
+	font-size: 128rem;
+	font-weight: 700;
+	line-height: 144rem;
+	margin-bottom: 96rem;
+}
+
+h2 {
+	font-size: 112rem;
+	line-height: 144rem;
+}
+
+h3 {
+	font-size: 72rem;
+	font-weight: 700;
+	line-height: 96rem;
+}
+
+h4 {
+	font-size: 60rem;
+	font-weight: 700;
+}
+
+h5 {
+	font-weight: 700;
+}
+
+p {
+	margin-bottom: 48rem;
+}
+
+form {
+	margin: 48rem 0;
+}
+
+pre,
+code,
+samp,
+kbd {
+	background-color: var(--flame7);
+	font-size: var(--font-size);
+	color: var(--flame2);
+	font-family: var(--font-mono);
+	line-height: 1;
+}
+
+code,
+samp,
+kbd {
+	border-radius: var(--border-radius);
+	overflow-y: hidden;
+	overflow-x: auto;
+	padding: 8rem;
+}
+
+pre {
+	border-radius: var(--border-radius);
+	line-height: var(--line-height);
+	overflow-y: hidden;
+	overflow-x: auto;
+	padding: 24rem;
+	margin: 0 0 48rem;
+}
+
+pre code,
+pre samp,
+pre kbd {
+	background-color: transparent;
+	border: none;
+	border-radius: 0;
+	padding: 0;
+}
+
+a:link {
+	color: var(--color-link);
+}
+
+a:visited {
+	color: var(--color-link-visited);
+}
+
+a:hover,
+a:focus {
+	color: var(--color-link-hover);
+}
+
+a:active {
+	color: var(--color-link-active);
+}
+
+img,
+video {
+	max-width: 100%;
+	vertical-align: top;
+}
+
+hr {
+	height: 96rem;
+	margin-bottom: 48rem;
+	position: relative;
+}
+
+hr::before {
+	background-color: var(--flame6);
+	content: '';
+	height: 1px;
+	left: 0;
+	position: absolute;
+	top: 50%;
+	width: 100%;
+}
+
+ol,
+ul {
+	margin: 0 0 48rem 48rem;
+}
+
+ol {
+	list-style-type: decimal;
+}
+
+ol ol {
+	margin-bottom: 0;
+}
+
+ul {
+	list-style-type: disc;
+}
+
+ul ul {
+	margin-bottom: 0;
+}
+
+dt {
+	font-style: italic;
+}
+
+dd {
+	margin-left: 48rem;
+}
+
+blockquote {
+	margin: 0 0 48rem 24rem;
+	border-left: 6rem solid var(--flame1);
+	padding: 48rem 24rem;
+}
+
+blockquote p:last-child {
+	margin-bottom: 0;
+}
+
+figure {
+	margin: 0 auto 48rem;
+}
+
+small,
+sub,
+sup,
+caption,
+figcaption {
+	font-size: 32rem;
+	vertical-align: top;
+}
+
+sub,
+sup {
+	position: relative;
+}
+
+sub {
+	top: 16rem;
+}
+
+sup {
+	bottom: 16rem;
+}
+
+caption,
+figcaption {
+	font-style: italic;
+	text-align: center;
+}
+
+rem,
+cite,
+i {
+	font-style: italic;
+}
+
+strong,
+var,
+b {
+	font-weight: bold;
+}
+
+q::before {
+	content: "'";
+}
+
+q::after {
+	content: "'";
+}
+
+q > q {
+	font-style: italic;
+}
+
+dfn,
+abbr {
+	border-bottom: 3rem dotted var(--flame2);
+	cursor: default;
+}
+
+table {
+	border-radius: var(--border-radius);
+	border-collapse: separate;
+	border-spacing: 0;
+	margin-bottom: 48rem;
+	width: 100%;
+}
+
+table th {
+	text-align: left;
+}
+
+table th,
+table td {
+	padding: 0 12rem;
+}
+
+input,
+label,
+select,
+button,
+textarea {
+	color: var(--fg);
+	display: block;
+	padding: 24rem;
+	resize: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+}
+
+label {
+	color: var(--blue2);
+	padding: 0;
+}
+
+.button {
+	--border-color: transparent;
+	--border-color-hover: transparent;
+	--border-thickness: 4rem;
+	--background-color: var(--flame3);
+	--background-color-hover: var(--flame4);
+	--text-color: var(--flame7);
+	--text-color-hover: var(--flame6);
+
+	align-items: center;
+	align-content: center;
+	background-color: var(--background-color);
+	border: var(--border-thickness) solid var(--border-color);
+	border-radius: var(--border-radius);
+	box-sizing: border-box;
+	color: var(--text-color);
+	cursor: pointer;
+	display: inline-block;
+	font-size: var(--font-size);
+	justify-content: center;
+	line-height: 48rem;
+	max-width: 100%;
+	min-height: 96rem;
+	padding: 20rem 48rem;
+	text-align: center;
+	transition-duration: 250ms;
+	transition-property: all;
+	user-select: none;
+	width: auto;
+	vertical-align: middle;
+}
+
+.button::-moz-focus-inner {
+	border: 0;
+}
+
+.button:link,
+.button:visited {
+	color: var(--text-color);
+	text-decoration: none;
+}
+
+.button:focus,
+.button:hover {
+	background-color: var(--background-color-hover);
+	border-color: var(--border-color-hover);
+	color: var(--text-color-hover);
+}
+
+.button:active {
+	background-color: var(--background-color);
+	color: var(--text-color);
+}
+
+.button:disabled {
+	opacity: .5;
+	pointer-events: none;
+}
+
+.button--outlined {
+	--background-color: transparent;
+	--background-color-hover: var(--flame7);
+	--border-color: var(--flame3);
+	--border-color-hover: var(--flame4);
+	--text-color: var(--flame7);
+}
+
+.button--secondary {
+	--background-color: var(--blue7);
+	--background-color-hover: var(--blue6);
+	--border-color: var(--blue2);
+	--border-color-hover: var(--blue1);
+	--text-color: var(--blue2);
+	--text-color-hover: var(--blue1);
+}
+
+.button--link {
+	--background-color: transparent;
+	--background-color-hover: transparent;
+	--border-color: transparent;
+	--border-color-hover: transparent;
+	--text-color: var(--color-link);
+	--text-color-hover: var(--color-link-hover);
+
+	text-decoration: underline;
+}
+
+.button--block {
+	display: block;
+	width: 100%;
+}
+
+.button--small {
+	--border-thickness: 3rem;
+
+	font-size: 36rem;
+	line-height: 48rem;
+	min-height: 48rem;
+	padding: 0 24rem;
+}
+
+.button--large {
+	--border-thickness: 6rem;
+
+	font-size: 60rem;
+	line-height: 72rem;
+	min-height: 144rem;
+	padding: 16rem 96rem;
+}
+
+.field [disabled] + *,
+[disabled] {
+	cursor: default;
+	opacity: .5;
+	pointer-events: none;
+}
+
+.field {
+	display: flex;
+	margin-bottom: 48rem;
+	position: relative;
+	text-align: left;
+}
+
+.field .label {
+	z-index: 2;
+}
+
+.field [type=checkbox] + .label,
+.field [type=radio] + .label {
+	color: var(--blue2);
+	cursor: pointer;
+	display: inline-block;
+	padding-left: 48rem;
+}
+
+.field *:not([type=radio]):not([type=checkbox]) + .label {
+	font-size: 24rem;
+	position: absolute;
+	left: 3rem;
+	line-height: 1;
+	padding: 12rem 12rem 0;
+	right: 3rem;
+	top: 0;
+}
+
+.field input,
+.field textarea,
+.field select {
+	background-color: var(--blue7);
+	border: 1px solid var(--blue2);
+	border-radius: var(--border-radius);
+	box-sizing: border-box;
+	margin-top: -2px;
+	padding: 36rem 12rem 6rem;
+	position: relative;
+	width: 100%;
+}
+
+.field select {
+	z-index: 1;
+}
+
+.field select + .label::after {
+	content: '';
+	border-left: 12rem solid transparent;
+	border-right: 12rem solid transparent;
+	border-top: 12rem solid var(--blue2);
+	bottom: -32rem;
+	height: 0;
+	pointer-events: none;
+	position: absolute;
+	right: 24rem;
+	width: 0;
+}
+
+.field option[disabled] {
+	background-color: var(--neutral6);
+	color: var(--neutral2);
+}
+
+.field--inline {
+	display: inline-block;
+	margin-right: 24rem;
+}
+
+.field [type=checkbox],
+.field [type=radio] {
+	opacity: 0;
+	position: absolute;
+	z-index: 0;
+}
+
+.field [type=checkbox] + .label::before,
+.field [type=radio] + .label::before {
+	background-color: var(--blue7);
+	border: 2px solid var(--blue2);
+	content: '';
+	height: 24rem;
+	left: 0;
+	position: absolute;
+	top: 6rem;
+	transform: translateY(3rem);
+	width: 24rem;
+}
+
+.field [type=checkbox] + .label::after,
+.field [type=radio] + .label::after {
+	background-color: var(--blue6);
+	border: 2px solid transparent;
+	color: var(--blue4);
+	height: 12rem;
+	left: 6rem;
+	position: absolute;
+	top: 12rem;
+	transform: translateY(3rem);
+	width: 12rem;
+}
+
+.field [type=checkbox] + .label::before,
+.field [type=checkbox] + .label::after {
+	border-radius: var(--border-radius);
+}
+
+.field [type=radio] + .label::before,
+.field [type=radio] + .label::after {
+	border-radius: 48rem;
+}
+
+.field [type=radio]:focus + .label::before,
+.field [type=checkbox]:focus + .label::before {
+	outline: var(--focus-outline);
+	outline-offset: var(--focus-outline-offset);
+}
+
+.field [type=checkbox]:checked + .label::after,
+.field [type=radio]:checked + .label::after {
+	content: '';
+}
+
+.field textarea {
+	margin-top: 0;
+	min-height: 192rem;
+}
+
+.sans-serif {
+	font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Ubuntu, roboto, noto, arial, sans-serif;
+}
+
+.serif {
+	font-family: Iowan Old Style, Apple Garamond, Baskerville, Times New Roman, Droid Serif, Times, Source Serif Pro, serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+}
+
+.mono {
+	font-family: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
+}
+
+/*
+	Best Practice from A11y Project
+	https://a11yproject.com/posts/how-to-hide-content/
+*/
+.visually-hidden {
+	position: absolute !important;
+	height: 1px; 
+	width: 1px;
+	overflow: hidden;
+	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+	clip: rect(1px, 1px, 1px, 1px);
+	white-space: nowrap; /* added line */
+}
