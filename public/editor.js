@@ -3,7 +3,6 @@ import {
   EditorView,
   basicSetup
 } from "https://esm.sh/@codemirror/basic-setup"
-import Text from "https://esm.sh/@codemirror/text"
 import {
   css
 } from "https://esm.sh/@codemirror/lang-css"
@@ -18,11 +17,15 @@ import tag
 
 const editors = {}
 
+const autosave = upload.bind(null, 'autosave')
+const save = upload.bind(null, 'save')
+
 export default function createEditor(selector, flags = {}) {
   const $ = tag(selector)
 
   mount($, flags)
-  autosave($, { every: 5 })
+  onSave($, flags)
+  onAutosave($, { every: 5 })
 }
 
 const config = {
@@ -64,22 +67,44 @@ function mount($, flags) {
   })
 }
 
-function autosave($, { every }) {
-  setInterval(() => each($, save), every * 1000)
-
-  function save(target) {
-		const currentState = $.read()
-		const copy = currentState[target.id]
-
-    // persist to some back up location
-		console.log({ copy })
-  }
+function onAutosave($, { every }) {
+  setInterval(() => each($, (target) => {
+		autosave(target.id, $)
+	}), every * 1000)
 }
-function persist(target, $, flags) {
+
+function onSave($, _flags) {
+	$.on('click', '[data-save]', (event) => {
+		save(event.target.id, $)
+	})
+}
+
+async function upload(mode, pathname, $) {
+	const currentState = $.read()
+	const { value } = currentState[pathname] || {}
+
+	if(value) {
+		// persist to some back up location
+		const response = await fetch(pathname, {
+			method: 'POST',
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({
+				mode,
+				value
+			})
+		});
+		
+		console.log(response)
+	}
+}
+
+function persist(target, $, _flags) {
 	return (transaction) => {
 		if(transaction.changes.inserted.length < 0) return
 
-		console.log({ transaction })
 		const { id } = target
 		const { view } = editors[id]
 		const value = view.state.doc.toString()

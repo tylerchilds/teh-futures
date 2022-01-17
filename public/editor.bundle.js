@@ -17866,11 +17866,14 @@ import('https://esm.sh/fast-equals@2.0.4').then(({ deepEqual  })=>equal = deepEq
 );
 const editors = {
 };
+const autosave = upload.bind(null, 'autosave');
+const save1 = upload.bind(null, 'save');
 function createEditor(selector, flags = {
 }) {
     const $ = tag(selector);
     mount1($, flags);
-    autosave($, {
+    onSave($, flags);
+    onAutosave($, {
         every: 5
     });
 }
@@ -17907,23 +17910,39 @@ function mount1($, flags) {
         });
     });
 }
-function autosave($, { every  }) {
-    setInterval(()=>each($, save)
+function onAutosave($, { every  }) {
+    setInterval(()=>each($, (target)=>{
+            autosave(target.id, $);
+        })
     , every * 1000);
-    function save(target) {
-        const currentState = $.read();
-        const copy = currentState[target.id];
-        console.log({
-            copy
+}
+function onSave($, _flags) {
+    $.on('click', '[data-save]', (event)=>{
+        save1(event.target.id, $);
+    });
+}
+async function upload(mode, pathname, $) {
+    const currentState = $.read();
+    const { value  } = currentState[pathname] || {
+    };
+    if (value) {
+        const response = await fetch(pathname, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                mode,
+                value
+            })
         });
+        console.log(response);
     }
 }
-function persist(target, $, flags) {
+function persist(target, $, _flags) {
     return (transaction)=>{
         if (transaction.changes.inserted.length < 0) return;
-        console.log({
-            transaction
-        });
         const { id  } = target;
         const { view  } = editors[id];
         const value = view.state.doc.toString();
