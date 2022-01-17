@@ -26,6 +26,7 @@ export default function createEditor(selector, flags = {}) {
   mount($, flags)
   onAutosave($, { every: 5 })
   onPublish($, flags)
+  onRecover($, flags)
 }
 
 const config = {
@@ -45,8 +46,8 @@ function mount($, flags) {
 
 			target.innerHTML = `
 				<nav class="action-bar">
-					<button data-reset data-id="${target.id}">
-						Reset
+					<button data-recover data-id="${target.id}">
+						Recover
 					</button>
 					<button data-publish data-id="${target.id}">
 						Publish
@@ -74,6 +75,10 @@ function mount($, flags) {
         state,
         view,
       }
+
+			if(!copy.value) {
+				recover(target.id, $)
+			}
     })
   })
 }
@@ -88,6 +93,13 @@ function onPublish($, _flags) {
 	$.on('click', '[data-publish]', (event) => {
 		const { id } = event.target.dataset
 		publish(id, $)
+	})
+}
+
+function onRecover($, _flags) {
+	$.on('click', '[data-recover]', (event) => {
+		const { id } = event.target.dataset
+		recover(id, $)
 	})
 }
 
@@ -123,6 +135,21 @@ function persist(target, $, _flags) {
 		view.update([transaction])
 		$.write({ [id]: { value }})
 	}
+}
+
+async function recover(pathname, $) {
+	const value = await fetch(`/public/${pathname}`)
+		.then(res => res.text())
+
+	const { view } = editors[pathname]
+
+	view.dispatch({
+		changes: {
+			from: 0,
+			to: view.state.doc.toString().length,
+			insert: value
+		}
+	})
 }
 
 function each($, save) {

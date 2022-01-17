@@ -55,28 +55,26 @@ async function handleGet(request) {
 function editor(request) {
 	const { pathname } = new URL(request.url);
 
-	return new Response(`
-			<!doctype html>
-			<html lang="en">
-				<head>
-					<meta charset="utf-8">
-					<title>
-						${pathname}
-					</title>
-				</head>
-				<body>
-					<main
-						class="source-code"
-						id="${pathname}"
-					></main>
-					<script type="module">
-						import createEditor from '/public/editor.bundle.js'
+	return new Response(`<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>
+		${pathname}
+	</title>
+</head>
+<body>
+	<main
+		class="source-code"
+		id="${pathname}"
+	></main>
+	<script type="module">
+		import createEditor from '/public/editor.bundle.js'
 
-						createEditor('.source-code')
-					</script>
-				</body>
-			</html>
-		`,
+		createEditor('.source-code')
+	</script>
+</body>
+</html>`,
 		{
 			headers: {
 				"content-type": getType('html'),

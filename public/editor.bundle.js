@@ -17876,6 +17876,7 @@ function createEditor(selector, flags = {
         every: 5
     });
     onPublish($, flags);
+    onRecover($, flags);
 }
 const config1 = {
     extensions: [
@@ -17891,8 +17892,8 @@ function mount1($, flags) {
             if (editors[target.id]) return;
             target.innerHTML = `
 				<nav class="action-bar">
-					<button data-reset data-id="${target.id}">
-						Reset
+					<button data-recover data-id="${target.id}">
+						Recover
 					</button>
 					<button data-publish data-id="${target.id}">
 						Publish
@@ -17917,6 +17918,9 @@ function mount1($, flags) {
                 state,
                 view
             };
+            if (!copy.value) {
+                recover(target.id, $);
+            }
         });
     });
 }
@@ -17930,6 +17934,12 @@ function onPublish($, _flags) {
     $.on('click', '[data-publish]', (event)=>{
         const { id  } = event.target.dataset;
         publish(id, $);
+    });
+}
+function onRecover($, _flags) {
+    $.on('click', '[data-recover]', (event)=>{
+        const { id  } = event.target.dataset;
+        recover(id, $);
     });
 }
 async function upload(mode, pathname, $) {
@@ -17966,6 +17976,18 @@ function persist(target, $, _flags) {
             }
         });
     };
+}
+async function recover(pathname, $) {
+    const value = await fetch(`/public/${pathname}`).then((res)=>res.text()
+    );
+    const { view  } = editors[pathname];
+    view.dispatch({
+        changes: {
+            from: 0,
+            to: view.state.doc.toString().length,
+            insert: value
+        }
+    });
 }
 function each($, save) {
     return [
