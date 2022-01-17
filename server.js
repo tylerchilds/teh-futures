@@ -1,4 +1,7 @@
-import { serve } from "https://deno.land/std@0.114.0/http/server.ts";
+import { serve }
+	from "https://deno.land/std@0.114.0/http/server.ts";
+import { parseMarkdown }
+	from "https://deno.land/x/markdown_wasm/mod.ts"
 
 const methods = {
 	'GET': handleGet,
@@ -39,6 +42,15 @@ async function handleGet(request) {
 	const isAutosave = pathname.split('.').slice(-1) === 'autosave'
 	const extensionPosition = isAutosave ? -2 : -1
 
+	if (pathname === '/') {
+		const file = await Deno.readFile('README.md')
+		return new Response(parseMarkdown(file), {
+			headers: {
+				'content-type': getType('html'),
+			},
+		})
+
+	}
 	if (pathname.startsWith('/public')) {
 		const file = await Deno.readFile(`.${pathname}`)
 		const extension = pathname.split('.').slice(extensionPosition)
